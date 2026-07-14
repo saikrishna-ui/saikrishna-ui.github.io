@@ -1,340 +1,222 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Sai Krishna Prasad Vibudi | Data Analyst Portfolio</title>
-<style>
-* { margin: 0; padding: 0; box-sizing: border-box; }
-body { font-family: 'Segoe UI', Arial, sans-serif; color: #1a1a1a; background: #f8f9fa; }
-
-/* NAV */
-nav { background: #0a66c2; padding: 16px 40px; display: flex; justify-content: space-between; align-items: center; position: sticky; top: 0; z-index: 100; }
-nav .logo { color: white; font-size: 18px; font-weight: 700; }
-nav a { color: white; text-decoration: none; margin-left: 24px; font-size: 14px; opacity: 0.9; }
-nav a:hover { opacity: 1; }
-
-/* HERO */
-.hero { background: linear-gradient(135deg, #0a66c2 0%, #064d99 100%); color: white; padding: 80px 40px; text-align: center; }
-.hero h1 { font-size: 42px; font-weight: 700; margin-bottom: 12px; }
-.hero h2 { font-size: 20px; font-weight: 400; opacity: 0.9; margin-bottom: 20px; }
-.hero p { font-size: 16px; opacity: 0.85; max-width: 700px; margin: 0 auto 30px; line-height: 1.7; }
-.hero-tags { display: flex; justify-content: center; flex-wrap: wrap; gap: 10px; margin-bottom: 30px; }
-.hero-tags span { background: rgba(255,255,255,0.2); padding: 6px 16px; border-radius: 20px; font-size: 13px; }
-.btn { display: inline-block; background: white; color: #0a66c2; padding: 12px 28px; border-radius: 6px; text-decoration: none; font-weight: 600; margin: 6px; font-size: 14px; }
-.btn-outline { background: transparent; color: white; border: 2px solid white; }
-
-/* SECTIONS */
-section { padding: 60px 40px; max-width: 1100px; margin: 0 auto; }
-.section-title { font-size: 28px; font-weight: 700; color: #0a66c2; margin-bottom: 8px; }
-.section-line { width: 50px; height: 4px; background: #0a66c2; margin-bottom: 40px; border-radius: 2px; }
-
-/* STATS */
-.stats { background: white; padding: 40px; border-radius: 12px; box-shadow: 0 2px 12px rgba(0,0,0,0.08); display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; text-align: center; margin: -30px 40px 0; position: relative; z-index: 10; }
-.stat-num { font-size: 36px; font-weight: 700; color: #0a66c2; }
-.stat-label { font-size: 13px; color: #666; margin-top: 4px; }
-
-/* SKILLS */
-.skills-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
-.skill-card { background: white; padding: 24px; border-radius: 10px; box-shadow: 0 2px 8px rgba(0,0,0,0.06); border-top: 4px solid #0a66c2; }
-.skill-card h3 { font-size: 15px; font-weight: 600; margin-bottom: 12px; color: #0a66c2; }
-.skill-tag { display: inline-block; background: #e8f0fe; color: #0a66c2; padding: 4px 10px; border-radius: 4px; font-size: 12px; margin: 3px 2px; }
-
-/* PROJECTS */
-.projects-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
-.project-card { background: white; border-radius: 12px; box-shadow: 0 2px 12px rgba(0,0,0,0.08); overflow: hidden; transition: transform 0.2s; }
-.project-card:hover { transform: translateY(-4px); }
-.project-header { background: linear-gradient(135deg, #0a66c2, #064d99); padding: 24px; color: white; }
-.project-header h3 { font-size: 16px; font-weight: 600; margin-bottom: 6px; }
-.project-header span { font-size: 12px; opacity: 0.85; background: rgba(255,255,255,0.2); padding: 3px 10px; border-radius: 12px; }
-.project-body { padding: 20px; }
-.project-body p { font-size: 13px; color: #555; line-height: 1.6; margin-bottom: 14px; }
-.project-tags { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 16px; }
-.project-tag { background: #f0f4ff; color: #0a66c2; padding: 3px 10px; border-radius: 4px; font-size: 11px; font-weight: 500; }
-.project-link { display: inline-block; color: #0a66c2; font-size: 13px; font-weight: 600; text-decoration: none; border: 1.5px solid #0a66c2; padding: 6px 16px; border-radius: 6px; }
-.project-link:hover { background: #0a66c2; color: white; }
-
-/* EXPERIENCE */
-.exp-card { background: white; border-radius: 10px; box-shadow: 0 2px 8px rgba(0,0,0,0.06); padding: 28px; margin-bottom: 20px; border-left: 5px solid #0a66c2; }
-.exp-header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 8px; }
-.exp-title { font-size: 17px; font-weight: 600; color: #1a1a1a; }
-.exp-date { font-size: 13px; color: #666; background: #f0f4ff; padding: 4px 12px; border-radius: 20px; }
-.exp-company { font-size: 14px; color: #0a66c2; font-weight: 500; margin-bottom: 12px; }
-.exp-card ul { padding-left: 18px; }
-.exp-card ul li { font-size: 13px; color: #555; line-height: 1.7; margin-bottom: 4px; }
-
-/* CERTS */
-.certs-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
-.cert-card { background: white; border-radius: 10px; box-shadow: 0 2px 8px rgba(0,0,0,0.06); padding: 24px; text-align: center; }
-.cert-icon { font-size: 32px; margin-bottom: 12px; }
-.cert-card h3 { font-size: 14px; font-weight: 600; color: #1a1a1a; margin-bottom: 6px; }
-.cert-card p { font-size: 12px; color: #666; }
-
-/* CONTACT */
-.contact-section { background: linear-gradient(135deg, #0a66c2, #064d99); color: white; padding: 60px 40px; text-align: center; }
-.contact-section h2 { font-size: 32px; font-weight: 700; margin-bottom: 12px; }
-.contact-section p { font-size: 16px; opacity: 0.9; margin-bottom: 30px; }
-.contact-links { display: flex; justify-content: center; gap: 16px; flex-wrap: wrap; }
-.contact-link { background: white; color: #0a66c2; padding: 12px 24px; border-radius: 6px; text-decoration: none; font-weight: 600; font-size: 14px; }
-
-/* FOOTER */
-footer { background: #1a1a1a; color: #999; text-align: center; padding: 20px; font-size: 13px; }
-
-@media (max-width: 768px) {
-  .stats { grid-template-columns: repeat(2, 1fr); margin: -20px 20px 0; }
-  .skills-grid, .projects-grid, .certs-grid { grid-template-columns: 1fr; }
-  .hero h1 { font-size: 28px; }
-  section { padding: 40px 20px; }
-}
-</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sai Krishna — AI/ML Engineer</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Segoe UI', sans-serif; background: #0f172a; color: #e2e8f0; }
+        header { background: linear-gradient(135deg, #1e3a8a, #2563eb); padding: 60px 20px; text-align: center; }
+        header h1 { font-size: 2.8em; color: white; margin-bottom: 10px; }
+        header p { font-size: 1.2em; color: #bfdbfe; margin-bottom: 20px; }
+        .badges { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; margin-top: 15px; }
+        .badge { background: rgba(255,255,255,0.15); padding: 6px 14px; border-radius: 20px; font-size: 0.85em; color: white; }
+        .links { margin-top: 25px; display: flex; justify-content: center; gap: 15px; flex-wrap: wrap; }
+        .links a { background: white; color: #2563eb; padding: 10px 22px; border-radius: 25px; text-decoration: none; font-weight: bold; font-size: 0.9em; }
+        .links a:hover { background: #bfdbfe; }
+        section { max-width: 900px; margin: 50px auto; padding: 0 20px; }
+        h2 { color: #60a5fa; font-size: 1.6em; margin-bottom: 20px; border-bottom: 2px solid #2563eb; padding-bottom: 8px; }
+        .project-card { background: #1e293b; border-radius: 12px; padding: 25px; margin-bottom: 20px; border-left: 4px solid #2563eb; }
+        .project-card h3 { color: #93c5fd; font-size: 1.2em; margin-bottom: 8px; }
+        .project-card p { color: #94a3b8; line-height: 1.6; margin-bottom: 12px; }
+        .tags { display: flex; flex-wrap: wrap; gap: 8px; }
+        .tag { background: #2563eb22; color: #60a5fa; padding: 4px 10px; border-radius: 12px; font-size: 0.8em; border: 1px solid #2563eb44; }
+        .highlight { background: #2563eb; color: white; }
+        .skills-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px; }
+        .skill-card { background: #1e293b; border-radius: 10px; padding: 18px; border-top: 3px solid #2563eb; }
+        .skill-card h4 { color: #60a5fa; margin-bottom: 10px; }
+        .skill-card p { color: #94a3b8; font-size: 0.85em; line-height: 1.6; }
+        .cert-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px; }
+        .cert-card { background: #1e293b; border-radius: 10px; padding: 18px; text-align: center; }
+        .cert-card .icon { font-size: 2em; margin-bottom: 8px; }
+        .cert-card h4 { color: #60a5fa; font-size: 0.9em; margin-bottom: 5px; }
+        .cert-card p { color: #64748b; font-size: 0.8em; }
+        .contact { background: #1e293b; border-radius: 12px; padding: 30px; text-align: center; margin-bottom: 50px; }
+        .contact p { color: #94a3b8; margin-bottom: 20px; font-size: 1.1em; }
+        .contact-links { display: flex; justify-content: center; gap: 15px; flex-wrap: wrap; }
+        .contact-links a { background: #2563eb; color: white; padding: 10px 22px; border-radius: 25px; text-decoration: none; font-weight: bold; }
+        .contact-links a:hover { background: #1d4ed8; }
+        .available { background: #064e3b; color: #6ee7b7; padding: 8px 18px; border-radius: 20px; display: inline-block; margin-top: 15px; font-size: 0.9em; }
+    </style>
 </head>
 <body>
 
-<!-- NAV -->
-<nav>
-  <div class="logo">Sai Krishna Prasad Vibudi</div>
-  <div>
-    <a href="#about">About</a>
-    <a href="#skills">Skills</a>
-    <a href="#projects">Projects</a>
-    <a href="#experience">Experience</a>
-    <a href="#contact">Contact</a>
-  </div>
-</nav>
+<header>
+    <h1>Sai Krishna Prasad Vibudi</h1>
+    <p>AI/ML Engineer | Generative AI | Healthcare AI</p>
+    <div class="badges">
+        <span class="badge">🤖 Anthropic AI Fluency Certified</span>
+        <span class="badge">☁️ AWS Cloud Practitioner</span>
+        <span class="badge">📊 Microsoft PL-300</span>
+        <span class="badge">☁️ Azure DP-900</span>
+        <span class="badge">🎓 MS Business Analytics — UNT 3.75 GPA</span>
+    </div>
+    <div class="links">
+        <a href="https://www.linkedin.com/in/sai-krishna-v-2284a5407/">LinkedIn</a>
+        <a href="https://github.com/saikrishna-ui">GitHub</a>
+        <a href="mailto:krishnav.analytics@gmail.com">Email Me</a>
+    </div>
+    <div class="available">✅ Available Immediately — Open to Relocate Anywhere in US</div>
+</header>
 
-<!-- HERO -->
-<div class="hero">
-  <h1>Sai Krishna Prasad Vibudi</h1>
-  <h2>AI-Integrated Data Analyst | Healthcare BI | MS Business Analytics</h2>
-  <p>Transforming complex healthcare and business datasets into actionable insights through SQL, Python, Power BI, and AI-integrated analytics. Certified Microsoft Power BI Data Analyst (PL-300) with 2.5 years of experience across healthcare, education, and business environments.</p>
-  <div class="hero-tags">
-    <span>SQL</span><span>Python</span><span>Power BI</span><span>Tableau</span>
-    <span>Machine Learning</span><span>Healthcare Analytics</span><span>Generative AI</span>
-  </div>
-  <a href="https://www.linkedin.com/in/sai-krishna-v-2284a5407/" class="btn" target="_blank">LinkedIn</a>
-  <a href="https://github.com/saikrishna-ui" class="btn btn-outline" target="_blank">GitHub</a>
-  <a href="mailto:krishnav.analytics@gmail.com" class="btn btn-outline">Contact Me</a>
-</div>
-
-<!-- STATS -->
-<div class="stats">
-  <div><div class="stat-num">2.5+</div><div class="stat-label">Years Experience</div></div>
-  <div><div class="stat-num">10+</div><div class="stat-label">Dashboards Built</div></div>
-  <div><div class="stat-num">3</div><div class="stat-label">Certifications</div></div>
-  <div><div class="stat-num">3</div><div class="stat-label">Healthcare ML Projects</div></div>
-</div>
-
-<!-- ABOUT -->
-<section id="about">
-  <div class="section-title">About Me</div>
-  <div class="section-line"></div>
-  <p style="font-size:15px; line-height:1.8; color:#444; max-width:800px;">
-    I am a Data Analyst passionate about using AI and advanced analytics to improve healthcare outcomes and drive data-driven decision making. With a Master's in Business Analytics from the University of North Texas (GPA 3.75) and hands-on experience at HHM Health and the University of North Texas, I specialize in building BI dashboards, automating reporting workflows, and applying machine learning to clinical healthcare data.
-    <br><br>
-    I am actively seeking full-time Data Analyst, BI Analyst, and Healthcare Analytics roles nationwide where I can contribute to meaningful, data-driven impact.
-  </p>
-</section>
-
-<!-- SKILLS -->
-<section id="skills">
-  <div class="section-title">Technical Skills</div>
-  <div class="section-line"></div>
-  <div class="skills-grid">
-    <div class="skill-card">
-      <h3>📊 Analytics & BI</h3>
-      <span class="skill-tag">Power BI</span><span class="skill-tag">Tableau</span>
-      <span class="skill-tag">Excel Advanced</span><span class="skill-tag">KPI Reporting</span>
-      <span class="skill-tag">Dashboard Development</span><span class="skill-tag">Data Visualization</span>
-    </div>
-    <div class="skill-card">
-      <h3>💻 Programming & AI</h3>
-      <span class="skill-tag">Python</span><span class="skill-tag">SQL</span>
-      <span class="skill-tag">R</span><span class="skill-tag">Pandas</span>
-      <span class="skill-tag">NumPy</span><span class="skill-tag">Scikit-Learn</span>
-      <span class="skill-tag">Generative AI</span>
-    </div>
-    <div class="skill-card">
-      <h3>🏥 Healthcare Analytics</h3>
-      <span class="skill-tag">Clinical Reporting</span><span class="skill-tag">Healthcare KPIs</span>
-      <span class="skill-tag">Patient Outcome Analysis</span><span class="skill-tag">ETL Pipelines</span>
-      <span class="skill-tag">Compliance Reporting</span>
-    </div>
-    <div class="skill-card">
-      <h3>🗄️ Databases</h3>
-      <span class="skill-tag">SQL Server</span><span class="skill-tag">MySQL</span>
-      <span class="skill-tag">PostgreSQL</span><span class="skill-tag">NoSQL</span>
-      <span class="skill-tag">Data Modeling</span>
-    </div>
-    <div class="skill-card">
-      <h3>🤖 Machine Learning</h3>
-      <span class="skill-tag">Classification</span><span class="skill-tag">Regression</span>
-      <span class="skill-tag">Random Forest</span><span class="skill-tag">Decision Trees</span>
-      <span class="skill-tag">Feature Engineering</span><span class="skill-tag">AUC-ROC</span>
-    </div>
-    <div class="skill-card">
-      <h3>🛠️ Tools & Platforms</h3>
-      <span class="skill-tag">Git</span><span class="skill-tag">Azure</span>
-      <span class="skill-tag">AWS</span><span class="skill-tag">Jupyter</span>
-      <span class="skill-tag">Power Query</span><span class="skill-tag">Agile/Scrum</span>
-    </div>
-  </div>
-</section>
-
-<!-- PROJECTS -->
-<section id="projects">
-  <div class="section-title">Healthcare Analytics Projects</div>
-  <div class="section-line"></div>
-  <div class="projects-grid">
-    <div class="project-card">
-      <div class="project-header">
-        <h3>Sepsis Prediction from ICU Data</h3>
-        <span>Clinical Machine Learning</span>
-      </div>
-      <div class="project-body">
-        <p>Developed ML models to predict sepsis onset in ICU patients using clinical vital signs and lab values. Applied Logistic Regression, Decision Tree, and Random Forest — evaluated with AUC-ROC and recall metrics to support early clinical intervention.</p>
-        <div class="project-tags">
-          <span class="project-tag">Python</span><span class="project-tag">Scikit-Learn</span>
-          <span class="project-tag">Machine Learning</span><span class="project-tag">Healthcare</span>
-        </div>
-        <a href="https://github.com/saikrishna-ui/sepsis-prediction-project" class="project-link" target="_blank">View on GitHub →</a>
-      </div>
-    </div>
-    <div class="project-card">
-      <div class="project-header">
-        <h3>Diabetes Prediction</h3>
-        <span>Healthcare AI</span>
-      </div>
-      <div class="project-body">
-        <p>Built classification models using Python and Scikit-Learn to predict diabetes onset from clinical patient data. Performed end-to-end ML pipeline including data cleaning, feature engineering, cross-validation, and model evaluation.</p>
-        <div class="project-tags">
-          <span class="project-tag">Python</span><span class="project-tag">Scikit-Learn</span>
-          <span class="project-tag">Classification</span><span class="project-tag">Clinical Data</span>
-        </div>
-        <a href="https://github.com/saikrishna-ui/ai-healthcare-projects" class="project-link" target="_blank">View on GitHub →</a>
-      </div>
-    </div>
-    <div class="project-card">
-      <div class="project-header">
-        <h3>Stroke Trends Dashboard</h3>
-        <span>Healthcare BI</span>
-      </div>
-      <div class="project-body">
-        <p>Designed an interactive Tableau dashboard analyzing stroke trends across patient age, gender, and occupation using clinical health data — transforming raw datasets into public health insights.</p>
-        <div class="project-tags">
-          <span class="project-tag">Tableau</span><span class="project-tag">Data Visualization</span>
-          <span class="project-tag">Healthcare Analytics</span><span class="project-tag">Clinical BI</span>
-        </div>
-        <a href="https://github.com/saikrishna-ui/tableau-stroke-dashboard" class="project-link" target="_blank">View on GitHub →</a>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- EXPERIENCE -->
-<section id="experience">
-  <div class="section-title">Professional Experience</div>
-  <div class="section-line"></div>
-
-  <div class="exp-card">
-    <div class="exp-header">
-      <div class="exp-title">Healthcare Business Intelligence Analyst</div>
-      <div class="exp-date">May 2025 – Dec 2025</div>
-    </div>
-    <div class="exp-company">HHM Health | Texas, USA</div>
-    <ul>
-      <li>Built 10+ Power BI and Tableau dashboards supporting clinical quality reporting and patient outcome tracking</li>
-      <li>Developed SQL-based ETL pipelines reducing manual reporting effort by ~30%</li>
-      <li>Automated clinical reports using Python and Excel across 5+ reporting cycles</li>
-      <li>Applied AI-assisted Python workflows to detect data anomalies in clinical datasets</li>
-      <li>Partnered with clinical stakeholders to define healthcare KPIs and reporting requirements</li>
-    </ul>
-  </div>
-
-  <div class="exp-card">
-    <div class="exp-header">
-      <div class="exp-title">Data Analyst – Marketing & Enrollment</div>
-      <div class="exp-date">Jan 2024 – May 2025</div>
-    </div>
-    <div class="exp-company">University of North Texas | Denton, TX</div>
-    <ul>
-      <li>Designed Tableau and Power BI dashboards tracking enrollment trends and marketing performance</li>
-      <li>Cleaned and validated 50,000+ records supporting trend analysis and forecasting</li>
-      <li>Automated reporting workflows using Python and Excel macros — improved efficiency by ~40%</li>
-      <li>Collaborated cross-functionally with marketing, IT, and academic teams</li>
-    </ul>
-  </div>
-
-  <div class="exp-card">
-    <div class="exp-header">
-      <div class="exp-title">Sales Analytics Analyst</div>
-      <div class="exp-date">Mar 2023 – Nov 2023</div>
-    </div>
-    <div class="exp-company">Anuhar Homes Pvt. Ltd. | Hyderabad, India</div>
-    <ul>
-      <li>Analyzed CRM data for 200+ client accounts tracking pipeline performance and revenue KPIs</li>
-      <li>Built Excel-based dashboards to monitor individual and team-level sales performance</li>
-    </ul>
-  </div>
-</section>
-
-<!-- CERTIFICATIONS -->
-<section id="certifications">
-  <div class="section-title">Certifications</div>
-  <div class="section-line"></div>
-  <div class="certs-grid">
-    <div class="cert-card">
-      <div class="cert-icon">🏆</div>
-      <h3>Microsoft Power BI Data Analyst Associate</h3>
-      <p>PL-300 | Microsoft</p>
-    </div>
-    <div class="cert-card">
-      <div class="cert-icon">☁️</div>
-      <h3>Microsoft Azure Data Fundamentals</h3>
-      <p>DP-900 | Microsoft</p>
-    </div>
-    <div class="cert-card">
-      <div class="cert-icon">🌐</div>
-      <h3>AWS Cloud Practitioner Foundations</h3>
-      <p>Amazon Web Services</p>
-    </div>
-  </div>
-</section>
-
-<!-- EDUCATION -->
 <section>
-  <div class="section-title">Education</div>
-  <div class="section-line"></div>
-  <div class="exp-card">
-    <div class="exp-header">
-      <div class="exp-title">Master of Science, Business Analytics</div>
-      <div class="exp-date">Dec 2025</div>
+    <h2>🚀 Featured Projects</h2>
+
+    <div class="project-card">
+        <h3>🏥 ClinIQ — AI-Powered Clinical Trial Failure Predictor</h3>
+        <p>90% of clinical trials fail — costing pharma companies billions. ClinIQ predicts whether a clinical trial will fail BEFORE it starts, using 5,000+ real FDA clinical trials. XGBoost ML model + SHAP explainability + Claude API generates plain-English risk explanations for researchers.</p>
+        <div class="tags">
+            <span class="tag highlight">In Development</span>
+            <span class="tag">Python</span>
+            <span class="tag">XGBoost</span>
+            <span class="tag">SHAP</span>
+            <span class="tag">Claude API</span>
+            <span class="tag">Streamlit</span>
+            <span class="tag">DuckDB</span>
+            <span class="tag">FDA Data</span>
+        </div>
     </div>
-    <div class="exp-company">University of North Texas | Denton, TX | GPA: 3.75</div>
-  </div>
-  <div class="exp-card">
-    <div class="exp-header">
-      <div class="exp-title">Bachelor of Business Administration</div>
-      <div class="exp-date">Aug 2023</div>
+
+    <div class="project-card">
+        <h3>🩺 Sepsis Prediction from ICU Data</h3>
+        <p>Built ML pipeline predicting sepsis onset in ICU patients using clinical vital signs and lab values. Achieved AUC-ROC of 0.84 — 18% better than baseline clinical screening methods. Full pipeline: data cleaning, feature engineering, model training, cross-validation.</p>
+        <div class="tags">
+            <span class="tag">Python</span>
+            <span class="tag">Scikit-Learn</span>
+            <span class="tag">XGBoost</span>
+            <span class="tag">Random Forest</span>
+            <span class="tag">Healthcare AI</span>
+            <span class="tag">AUC-ROC 0.84</span>
+        </div>
     </div>
-    <div class="exp-company">Siva Sivani Institute of Management | Hyderabad, India</div>
-  </div>
+
+    <div class="project-card">
+        <h3>💊 Diabetes Prediction</h3>
+        <p>End-to-end ML classification pipeline predicting diabetes onset from clinical patient data. Applied Logistic Regression, Decision Tree, and Random Forest with full feature engineering and cross-validation.</p>
+        <div class="tags">
+            <span class="tag">Python</span>
+            <span class="tag">Scikit-Learn</span>
+            <span class="tag">Classification</span>
+            <span class="tag">Feature Engineering</span>
+        </div>
+    </div>
+
+    <div class="project-card">
+        <h3>📊 Stroke Trends Analytics Dashboard</h3>
+        <p>Interactive Tableau dashboard analyzing stroke trends across patient age, gender, and occupation using clinical health data. Adopted by public health team for quarterly reporting.</p>
+        <div class="tags">
+            <span class="tag">Tableau</span>
+            <span class="tag">SQL</span>
+            <span class="tag">Healthcare Analytics</span>
+            <span class="tag">Data Visualization</span>
+        </div>
+    </div>
 </section>
 
-<!-- CONTACT -->
-<div class="contact-section" id="contact">
-  <h2>Let's Connect!</h2>
-  <p>Open to full-time Data Analyst, BI Analyst, and Healthcare Analytics roles nationwide</p>
-  <div class="contact-links">
-    <a href="mailto:krishnav.analytics@gmail.com" class="contact-link">📧 Email Me</a>
-    <a href="https://www.linkedin.com/in/sai-krishna-v-2284a5407/" class="contact-link" target="_blank">💼 LinkedIn</a>
-    <a href="https://github.com/saikrishna-ui" class="contact-link" target="_blank">💻 GitHub</a>
-  </div>
-</div>
+<section>
+    <h2>🛠 Technical Skills</h2>
+    <div class="skills-grid">
+        <div class="skill-card">
+            <h4>🤖 AI & Machine Learning</h4>
+            <p>Python, Scikit-Learn, XGBoost, SHAP, Random Forest, Logistic Regression, Feature Engineering, Predictive Modeling</p>
+        </div>
+        <div class="skill-card">
+            <h4>💬 Generative AI & LLMs</h4>
+            <p>Claude API, Prompt Engineering, LangChain, LLM Integration, RAG, Generative AI Applications</p>
+        </div>
+        <div class="skill-card">
+            <h4>🗄️ Data & SQL</h4>
+            <p>SQL, Pandas, NumPy, ETL Pipelines, DuckDB, Data Cleaning, Data Validation, Feature Engineering</p>
+        </div>
+        <div class="skill-card">
+            <h4>📊 BI & Visualization</h4>
+            <p>Power BI (PL-300), Tableau, Streamlit, Plotly, Excel Advanced, Dashboard Development</p>
+        </div>
+        <div class="skill-card">
+            <h4>☁️ Cloud & DevOps</h4>
+            <p>AWS (CLF-C02), Azure (DP-900), Git/GitHub, FastAPI, Render, Jupyter, Agile/Scrum</p>
+        </div>
+        <div class="skill-card">
+            <h4>🏥 Healthcare AI</h4>
+            <p>Clinical Analytics, Healthcare KPIs, HIPAA Compliance, Patient Outcome Modeling, Healthcare Data Engineering</p>
+        </div>
+    </div>
+</section>
 
-<!-- FOOTER -->
-<footer>
-  <p>© 2026 Sai Krishna Prasad Vibudi | Data Analyst | AI-Integrated Analytics | Healthcare BI</p>
-</footer>
+<section>
+    <h2>🏆 Certifications</h2>
+    <div class="cert-grid">
+        <div class="cert-card">
+            <div class="icon">🤖</div>
+            <h4>AI Fluency: Framework & Foundations</h4>
+            <p>Anthropic • 2025</p>
+        </div>
+        <div class="cert-card">
+            <div class="icon">🤖</div>
+            <h4>Claude 101</h4>
+            <p>Anthropic • 2025</p>
+        </div>
+        <div class="cert-card">
+            <div class="icon">📊</div>
+            <h4>Power BI Data Analyst (PL-300)</h4>
+            <p>Microsoft • June 2026</p>
+        </div>
+        <div class="cert-card">
+            <div class="icon">☁️</div>
+            <h4>Cloud Practitioner (CLF-C02)</h4>
+            <p>AWS • July 2026</p>
+        </div>
+        <div class="cert-card">
+            <div class="icon">☁️</div>
+            <h4>Azure Data Fundamentals (DP-900)</h4>
+            <p>Microsoft • 2026</p>
+        </div>
+    </div>
+</section>
+
+<section>
+    <h2>💼 Experience</h2>
+
+    <div class="project-card">
+        <h3>Healthcare Business Intelligence Analyst — HHM Health</h3>
+        <p>May 2025 – Dec 2025 | Texas, USA</p>
+        <p>Built ML anomaly detection model, integrated Claude API into reporting workflows, engineered ETL pipelines processing 500K+ records monthly, built 10+ Power BI/Tableau dashboards, automated compliance reports reducing generation time by 83%.</p>
+        <div class="tags">
+            <span class="tag">Python</span>
+            <span class="tag">Claude API</span>
+            <span class="tag">SQL</span>
+            <span class="tag">Power BI</span>
+            <span class="tag">Tableau</span>
+            <span class="tag">ETL</span>
+        </div>
+    </div>
+
+    <div class="project-card">
+        <h3>Data Analyst – Marketing & Enrollment — University of North Texas</h3>
+        <p>Jan 2024 – May 2025 | Denton, TX</p>
+        <p>Analyzed 50,000+ enrollment records using ML models, built self-service dashboards reducing ad hoc requests by 40%, ran A/B analyses on 8 campaigns increasing conversion by 15%.</p>
+        <div class="tags">
+            <span class="tag">Python</span>
+            <span class="tag">SQL</span>
+            <span class="tag">Power BI</span>
+            <span class="tag">Tableau</span>
+            <span class="tag">Machine Learning</span>
+        </div>
+    </div>
+</section>
+
+<section>
+    <h2>📬 Contact</h2>
+    <div class="contact">
+        <p>Open to AI/ML Engineer, Generative AI, and Healthcare AI roles — available immediately, open to relocate anywhere in the US!</p>
+        <div class="contact-links">
+            <a href="mailto:krishnav.analytics@gmail.com">📧 Email Me</a>
+            <a href="https://www.linkedin.com/in/sai-krishna-v-2284a5407/">💼 LinkedIn</a>
+            <a href="https://github.com/saikrishna-ui">💻 GitHub</a>
+        </div>
+    </div>
+</section>
 
 </body>
 </html>
